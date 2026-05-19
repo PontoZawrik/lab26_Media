@@ -40,6 +40,8 @@ namespace lab26Media {
 	private: AxWMPLib::AxWindowsMediaPlayer^ axWindowsMediaPlayer1;
 	private: Microsoft::VisualBasic::Compatibility::VB6::FileListBox^ fileListBox1;
 	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
+	private: System::Windows::Forms::ToolStripMenuItem^ ñëåäóşùèéToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ ïğîèãğûâàòüToolStripMenuItem;
 	protected:
 
 
@@ -63,6 +65,8 @@ namespace lab26Media {
 			this->fileListBox1 = (gcnew Microsoft::VisualBasic::Compatibility::VB6::FileListBox());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
+			this->ñëåäóşùèéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïğîèãğûâàòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axWindowsMediaPlayer1))->BeginInit();
 			this->SuspendLayout();
@@ -79,7 +83,10 @@ namespace lab26Media {
 			// 
 			// ôàéëToolStripMenuItem
 			// 
-			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->îòêğûòüÔàéëToolStripMenuItem });
+			this->ôàéëToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(3) {
+				this->îòêğûòüÔàéëToolStripMenuItem,
+					this->ñëåäóşùèéToolStripMenuItem, this->ïğîèãğûâàòüToolStripMenuItem
+			});
 			this->ôàéëToolStripMenuItem->Name = L"ôàéëToolStripMenuItem";
 			this->ôàéëToolStripMenuItem->Size = System::Drawing::Size(59, 24);
 			this->ôàéëToolStripMenuItem->Text = L"Ôàéë";
@@ -87,7 +94,7 @@ namespace lab26Media {
 			// îòêğûòüÔàéëToolStripMenuItem
 			// 
 			this->îòêğûòüÔàéëToolStripMenuItem->Name = L"îòêğûòüÔàéëToolStripMenuItem";
-			this->îòêğûòüÔàéëToolStripMenuItem->Size = System::Drawing::Size(189, 26);
+			this->îòêğûòüÔàéëToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->îòêğûòüÔàéëToolStripMenuItem->Text = L"Îòêğûòü ôàéë";
 			this->îòêğûòüÔàéëToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îòêğûòüÔàéëToolStripMenuItem_Click);
 			// 
@@ -111,6 +118,20 @@ namespace lab26Media {
 			this->axWindowsMediaPlayer1->TabIndex = 1;
 			this->axWindowsMediaPlayer1->StatusChange += gcnew System::EventHandler(this, &MyForm::axWindowsMediaPlayer1_StatusChange);
 			// 
+			// ñëåäóşùèéToolStripMenuItem
+			// 
+			this->ñëåäóşùèéToolStripMenuItem->Name = L"ñëåäóşùèéToolStripMenuItem";
+			this->ñëåäóşùèéToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ñëåäóşùèéToolStripMenuItem->Text = L"Ñëåäóşùèé";
+			this->ñëåäóşùèéToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñëåäóşùèéToolStripMenuItem_Click);
+			// 
+			// ïğîèãğûâàòüToolStripMenuItem
+			// 
+			this->ïğîèãğûâàòüToolStripMenuItem->Name = L"ïğîèãğûâàòüToolStripMenuItem";
+			this->ïğîèãğûâàòüToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->ïğîèãğûâàòüToolStripMenuItem->Text = L"Ïğîèãğûâàòü";
+			this->ïğîèãğûâàòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïğîèãğûâàòüToolStripMenuItem_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -131,7 +152,7 @@ namespace lab26Media {
 		}
 #pragma endregion
 	private: System::Void îòêğûòüÔàéëToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-		fileListBox1->Pattern = "*.mp3";
+		fileListBox1->Pattern = "*.avi";
 		folderBrowserDialog1->ShowDialog();
 		fileListBox1->FileName = folderBrowserDialog1->SelectedPath;
 	}
@@ -142,6 +163,27 @@ namespace lab26Media {
 
 	private: System::Void axWindowsMediaPlayer1_StatusChange(System::Object^ sender, System::EventArgs^ e) {
 		this->Text = "Ïğîèãğûâàåòñÿ: " + axWindowsMediaPlayer1->status;
+	}
+
+	private: System::Void ñëåäóşùèéToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+			fileListBox1->SelectedIndex += 1;
+		}
+		catch (System::ArgumentOutOfRangeException^ e) {
+			MessageBox::Show("Ñïèñîê çàêîí÷èëñÿ.");
+		}
+		catch (System::Exception^ e) {
+			MessageBox::Show("Îøèáêà " + e->Message);
+		}
+	}
+
+	private: System::Void ïğîèãğûâàòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+			axWindowsMediaPlayer1->Ctlcontrols->play();
+		}
+		catch (System::Exception^ e) {
+			MessageBox::Show("Îøèáêà " + e->Message);
+		}
 	}
 };
 }
