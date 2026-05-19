@@ -1,4 +1,5 @@
 #pragma once
+#include "SecondForm.h"
 
 namespace lab26Media {
 
@@ -42,6 +43,7 @@ namespace lab26Media {
 	private: System::Windows::Forms::FolderBrowserDialog^ folderBrowserDialog1;
 	private: System::Windows::Forms::ToolStripMenuItem^ ñëåäóþùèéToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ ïðîèãðûâàòüToolStripMenuItem;
+	private: System::Windows::Forms::Button^ button1;
 	protected:
 
 
@@ -62,11 +64,12 @@ namespace lab26Media {
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->îòêðûòüÔàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ñëåäóþùèéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->ïðîèãðûâàòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->fileListBox1 = (gcnew Microsoft::VisualBasic::Compatibility::VB6::FileListBox());
 			this->folderBrowserDialog1 = (gcnew System::Windows::Forms::FolderBrowserDialog());
 			this->axWindowsMediaPlayer1 = (gcnew AxWMPLib::AxWindowsMediaPlayer());
-			this->ñëåäóþùèéToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
-			this->ïðîèãðûâàòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->axWindowsMediaPlayer1))->BeginInit();
 			this->SuspendLayout();
@@ -77,7 +80,7 @@ namespace lab26Media {
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->ôàéëToolStripMenuItem });
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
 			this->menuStrip1->Name = L"menuStrip1";
-			this->menuStrip1->Size = System::Drawing::Size(855, 28);
+			this->menuStrip1->Size = System::Drawing::Size(822, 28);
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
@@ -94,14 +97,28 @@ namespace lab26Media {
 			// îòêðûòüÔàéëToolStripMenuItem
 			// 
 			this->îòêðûòüÔàéëToolStripMenuItem->Name = L"îòêðûòüÔàéëToolStripMenuItem";
-			this->îòêðûòüÔàéëToolStripMenuItem->Size = System::Drawing::Size(224, 26);
+			this->îòêðûòüÔàéëToolStripMenuItem->Size = System::Drawing::Size(189, 26);
 			this->îòêðûòüÔàéëToolStripMenuItem->Text = L"Îòêðûòü ôàéë";
 			this->îòêðûòüÔàéëToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::îòêðûòüÔàéëToolStripMenuItem_Click);
+			// 
+			// ñëåäóþùèéToolStripMenuItem
+			// 
+			this->ñëåäóþùèéToolStripMenuItem->Name = L"ñëåäóþùèéToolStripMenuItem";
+			this->ñëåäóþùèéToolStripMenuItem->Size = System::Drawing::Size(189, 26);
+			this->ñëåäóþùèéToolStripMenuItem->Text = L"Ñëåäóþùèé";
+			this->ñëåäóþùèéToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñëåäóþùèéToolStripMenuItem_Click);
+			// 
+			// ïðîèãðûâàòüToolStripMenuItem
+			// 
+			this->ïðîèãðûâàòüToolStripMenuItem->Name = L"ïðîèãðûâàòüToolStripMenuItem";
+			this->ïðîèãðûâàòüToolStripMenuItem->Size = System::Drawing::Size(189, 26);
+			this->ïðîèãðûâàòüToolStripMenuItem->Text = L"Ïðîèãðûâàòü";
+			this->ïðîèãðûâàòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïðîèãðûâàòüToolStripMenuItem_Click);
 			// 
 			// fileListBox1
 			// 
 			this->fileListBox1->FormattingEnabled = true;
-			this->fileListBox1->Location = System::Drawing::Point(623, 52);
+			this->fileListBox1->Location = System::Drawing::Point(593, 52);
 			this->fileListBox1->Name = L"fileListBox1";
 			this->fileListBox1->Pattern = L"*.*";
 			this->fileListBox1->Size = System::Drawing::Size(207, 148);
@@ -118,25 +135,22 @@ namespace lab26Media {
 			this->axWindowsMediaPlayer1->TabIndex = 1;
 			this->axWindowsMediaPlayer1->StatusChange += gcnew System::EventHandler(this, &MyForm::axWindowsMediaPlayer1_StatusChange);
 			// 
-			// ñëåäóþùèéToolStripMenuItem
+			// button1
 			// 
-			this->ñëåäóþùèéToolStripMenuItem->Name = L"ñëåäóþùèéToolStripMenuItem";
-			this->ñëåäóþùèéToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->ñëåäóþùèéToolStripMenuItem->Text = L"Ñëåäóþùèé";
-			this->ñëåäóþùèéToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ñëåäóþùèéToolStripMenuItem_Click);
-			// 
-			// ïðîèãðûâàòüToolStripMenuItem
-			// 
-			this->ïðîèãðûâàòüToolStripMenuItem->Name = L"ïðîèãðûâàòüToolStripMenuItem";
-			this->ïðîèãðûâàòüToolStripMenuItem->Size = System::Drawing::Size(224, 26);
-			this->ïðîèãðûâàòüToolStripMenuItem->Text = L"Ïðîèãðûâàòü";
-			this->ïðîèãðûâàòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::ïðîèãðûâàòüToolStripMenuItem_Click);
+			this->button1->Location = System::Drawing::Point(593, 207);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(207, 28);
+			this->button1->TabIndex = 3;
+			this->button1->Text = L"Çàäàíèå 4";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(855, 448);
+			this->ClientSize = System::Drawing::Size(822, 448);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->fileListBox1);
 			this->Controls->Add(this->axWindowsMediaPlayer1);
 			this->Controls->Add(this->menuStrip1);
@@ -184,6 +198,11 @@ namespace lab26Media {
 		catch (System::Exception^ e) {
 			MessageBox::Show("Îøèáêà " + e->Message);
 		}
+	}
+
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		SecondForm^ f = gcnew SecondForm;
+		f->Show();
 	}
 };
 }
