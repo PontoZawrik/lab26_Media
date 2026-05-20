@@ -4,4 +4,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="lab26_Media/lab26_Media.vcxproj" />
+  <Project Path="task5/task5.vcxproj" />
 </Solution>
